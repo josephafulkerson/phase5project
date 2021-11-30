@@ -8,7 +8,10 @@ const stockOptions = [
   { ticker: "TSLA", company: "Tesla" },
 ];
 
-const etfOptions = [{ symbol: "VDE", name: "Vanguard Energy Index Fund ETF" }];
+const etfOptions = [
+    { symbol: "VDE", name: "Vanguard Energy Index Fund ETF" },
+    { symbol: "CARZ", name: "First Trust NASDAQ Global Auto Index ETF" }
+];
 
 const mrktOptions = [
     { symbol: "SPY", name: "SPDR S&P 500 ETF Trust" },
@@ -20,6 +23,7 @@ const Home = () => {
   const [tick, setTick] = useState("");
   const [etf, setEtf] = useState("");
   const [mrkt, setMrkt] = useState("");
+  const [time, setTime] = useState("DAILY")
 
   return (
     <div>
@@ -53,7 +57,17 @@ const Home = () => {
           ))}
         </select>
       </form>
-      <DataContainer tick={tick} etf={etf} mrkt={mrkt} />
+      <form onChange={(e) => setTime(e.target.value)}>
+        <select>
+          <option value="" disabled selected hidden>
+            Time Interval
+          </option>
+          <option value="DAILY">Daily</option>
+          <option value="WEEKLY">Weekly</option>
+          <option value="MONTHLY">Monthly</option>
+        </select>
+      </form>
+      <DataContainer tick={tick} etf={etf} mrkt={mrkt} time={time} />
     </div>
   );
 };

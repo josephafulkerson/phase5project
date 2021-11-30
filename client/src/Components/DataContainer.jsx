@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Data from "./Data";
 
-const DataContainer = ({ tick, etf, mrkt }) => {
+const DataContainer = ({ tick, etf, mrkt, time }) => {
   const [stonk, setStonk] = useState("");
   const [index, setIndex] = useState("")
   const [market, setMarket] = useState("")
 
-  let url = `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${tick}&apikey=CTX2WO0FQCN6V3F4`;
-  let etfUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${etf}&apikey=AGZL3K79BXVZZVE3`;
-  let marketUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${mrkt}&apikey=PC63WXEF9GOBXQ7B`;
-
+  let url = `https://www.alphavantage.co/query?function=TIME_SERIES_${time}&symbol=${tick}&apikey=CTX2WO0FQCN6V3F4`;
+  let etfUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_${time}&symbol=${etf}&apikey=AGZL3K79BXVZZVE3`;
+  let marketUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_${time}&symbol=${mrkt}&apikey=PC63WXEF9GOBXQ7B`;
   useEffect(() => {
+
     if (tick) {
       console.log("fetching", url);
       fetch(url)
@@ -19,7 +19,7 @@ const DataContainer = ({ tick, etf, mrkt }) => {
           setStonk(data);
         });
     }
-  }, [tick]);
+  }, [tick, time, url]);
 
   useEffect(() => {
     if (etf) {
@@ -29,7 +29,7 @@ const DataContainer = ({ tick, etf, mrkt }) => {
           setIndex(data);
         });
     }
-  }, [etf]);
+  }, [etf, time]);
 
   useEffect(() => {
     if (mrkt) {
@@ -39,13 +39,13 @@ const DataContainer = ({ tick, etf, mrkt }) => {
           setMarket(data);
         });
     }
-  }, [mrkt]);
+  }, [mrkt, time]);
 
 
 
   return (
     <div>
-      <Data stonks={stonk} index={index} market={market}/>
+      <Data stonks={stonk} index={index} market={market} time={time}/>
     </div>
   );
 };
