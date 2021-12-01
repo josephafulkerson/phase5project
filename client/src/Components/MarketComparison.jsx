@@ -5,12 +5,12 @@ const MarketComparison = ({ market, time }) => {
   let timeCap =
     time == "DAILY" ? "(Daily)" : time.charAt(0) + time.slice(1).toLowerCase();
   if (!market[`${timeCap} Time Series`] && !market[`Time Series ${timeCap}`]) return <div>Loading.....</div>;
-
+  console.log(timeCap, "In Market Comp")
   const mrktDates =
     timeCap == "(Daily)"
       ? Object.keys(market[`Time Series ${timeCap}`]).slice(0, 10)
       : Object.keys(market[`${timeCap} Time Series`]).slice(0, 10);
-
+  console.log(mrktDates, "second")
   return (
     <>
     <h3>{market["Meta Data"]["2. Symbol"]} Close</h3>

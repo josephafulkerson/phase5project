@@ -6,14 +6,14 @@ const Data = ({ stonks, index, market, time }) => {
   if (!stonks) return <div>Select a Stock to View</div>;
   let timeCap =
     time == "DAILY" ? "(Daily)" : time.charAt(0) + time.slice(1).toLowerCase();
-
+  console.log(timeCap, 'first')
   if (!stonks[`${timeCap} Time Series`] && !stonks[`Time Series ${timeCap}`]) return <div>Loading.....</div>;
 
   const dates =
     timeCap == "(Daily)"
       ? Object.keys(stonks[`Time Series ${timeCap}`]).slice(0, 10)
       : Object.keys(stonks[`${timeCap} Time Series`]).slice(0, 10);
-
+  console.log(dates, '2')
 
   return (
     <>
