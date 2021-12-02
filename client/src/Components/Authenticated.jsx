@@ -1,11 +1,26 @@
-import React from 'react'
+import React from "react";
+import Home from "./Home";
+import About from "./About";
+import Profile from "./Profile";
+import { Switch, Route } from "react-router-dom";
 
-const Authenticated = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const Authenticated = ({ currentUser }) => {
+  console.log(currentUser);
+  return (
+    <>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route exact path="/profile">
+          <Profile currentUser={currentUser}/>
+        </Route>
+      </Switch>
+    </>
+  );
+};
 
-export default Authenticated
+export default Authenticated;
