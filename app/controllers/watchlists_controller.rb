@@ -10,9 +10,16 @@ class WatchlistsController < ApplicationController
         render json: watchlist
     end
 
+    def show 
+        watchlist = Watchlist.find_by(id: session[:user_id])
+        render json: watchlist
+    end
+
+
+
     private
 
     def watchlist_params
-        params.permit(:description, :stock, :user_id)
+        params.permit(:symbol, :date, :high, :low, :close, :user_id)
     end
 end

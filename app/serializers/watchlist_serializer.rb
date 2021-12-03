@@ -1,3 +1,3 @@
 class WatchlistSerializer < ActiveModel::Serializer
-  attributes :id, :description, :stock, :user_id
+  attributes :id, :symbol, :high, :low, :close, :date
 end

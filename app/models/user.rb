@@ -3,6 +3,6 @@ class User < ApplicationRecord
 
     has_one :watchlist
 
-    validates_presence_of :username
-    validates_presence_of :password_digest
+    validates :username, presence: true, uniqueness: true
+    validates :password_digest, presence: true
 end

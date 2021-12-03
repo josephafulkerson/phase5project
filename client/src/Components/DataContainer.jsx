@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Data from "./Data";
 
-const DataContainer = ({ tick, etf, mrkt, time }) => {
+const DataContainer = ({ tick, etf, mrkt, time, currentUser }) => {
   const [stonk, setStonk] = useState("");
   const [index, setIndex] = useState("")
   const [market, setMarket] = useState("")
@@ -45,7 +45,7 @@ const DataContainer = ({ tick, etf, mrkt, time }) => {
 
   return (
     <div>
-      <Data stonks={stonk} index={index} market={market} time={time}/>
+      <Data stonks={stonk} index={index} market={market} time={time} tick={tick} currentUser={currentUser}/>
     </div>
   );
 };

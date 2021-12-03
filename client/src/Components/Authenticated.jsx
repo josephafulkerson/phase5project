@@ -10,7 +10,7 @@ const Authenticated = ({ currentUser }) => {
     <>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home currentUser={currentUser}/>
         </Route>
         <Route exact path="/about">
           <About />

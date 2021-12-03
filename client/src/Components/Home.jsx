@@ -19,7 +19,7 @@ const mrktOptions = [
     { symbol: "QQQ", name: "Invesco QQQ Trust Series 1" }
 ]
 
-const Home = () => {
+const Home = ({currentUser}) => {
   const [tick, setTick] = useState("");
   const [etf, setEtf] = useState("");
   const [mrkt, setMrkt] = useState("");
@@ -67,7 +67,7 @@ const Home = () => {
           <option value="MONTHLY">Monthly</option>
         </select>
       </form>
-      <DataContainer tick={tick} etf={etf} mrkt={mrkt} time={time} />
+      <DataContainer tick={tick} etf={etf} mrkt={mrkt} time={time} currentUser={currentUser} />
     </div>
   );
 };
