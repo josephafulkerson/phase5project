@@ -1,17 +1,17 @@
-class WatchlistsController < ApplicationController
+class WatchlistItemsController < ApplicationController
 
     def index
-        watchlist = Watchlist.all
+        watchlist = WatchlistItem.all
         render json: watchlist
     end
 
     def create
-        watchlist = Watchlist.create(watchlist_params)
+        watchlist = WatchlistItem.create(watchlist_params)
         render json: watchlist
     end
 
     def show 
-        watchlist = Watchlist.find_by(id: session[:user_id])
+        watchlist = WatchlistItem.find_by(id: session[:user_id])
         render json: watchlist
     end
 

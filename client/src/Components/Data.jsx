@@ -16,15 +16,6 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
       ? Object.keys(stonks[`Time Series ${timeCap}`]).slice(0, 12)
       : Object.keys(stonks[`${timeCap} Time Series`]).slice(0, 12);
 
-      const jsonObj = {
-        symbol: tick,
-        date: dates[0],
-        high: stonks[`Time Series ${timeCap}`][dates[0]]["2. high"],
-        low: stonks[`Time Series ${timeCap}`][dates[0]]["3. low"],
-        close: stonks[`Time Series ${timeCap}`][dates[0]]["4. close"],
-        user_id: currentUser.id
-      }
-      console.log(currentUser.id)
 
   function handleAdd() {
     setBttnClick((bttnClick) => !bttnClick)
@@ -33,7 +24,14 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(jsonObj)
+      body: JSON.stringify({ 
+        symbol: tick,
+        date: dates[0],
+        high: stonks[`Time Series ${timeCap}`][dates[0]]["2. high"],
+        low: stonks[`Time Series ${timeCap}`][dates[0]]["3. low"],
+        close: stonks[`Time Series ${timeCap}`][dates[0]]["4. close"],
+        user_id: currentUser.id
+      })
     })
   }
 
@@ -57,7 +55,7 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
           ))}
         </div>
       )}
-      {tick ? <button onClick={handleAdd}>{bttnClick ? "Added to profile ✅" : `Add ${tick} to profile`} </button> : null}
+      {timeCap === "(Daily)" ? <button onClick={handleAdd}>{bttnClick ? "Added to profile ✅" : `Add ${tick} to profile`} </button> : null}
       <IndexComparison index={index} time={time} />
       <MarketComparison market={market} time={time} />
     </>

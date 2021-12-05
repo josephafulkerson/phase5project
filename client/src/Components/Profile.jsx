@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import ProfileData from "./ProfileData";
 const Profile = ({ currentUser }) => {
   const [userData, setUserData] = useState([])
   useEffect(() =>{
@@ -14,8 +14,7 @@ const Profile = ({ currentUser }) => {
   return (
     <>
       <h3>Hello {currentUser.username}</h3>
-      <h3>My Stocks in the News</h3>
-      <p>{userData.high}</p>
+      <ProfileData />
     </>
   );
 };

@@ -10,7 +10,7 @@ const Unauthenticated = ({setCurrentUser}) => {
     <>
       <Switch>
         <Route exact path="/">
-          <Login />
+          <Login setCurrentUser={setCurrentUser}/>
         </Route>
         <Route exact path="/signup">
           <Signup setCurrentUser={setCurrentUser}/>
