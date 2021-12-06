@@ -10,10 +10,10 @@ class WatchlistItemsController < ApplicationController
         render json: watchlist
     end
 
-    def show 
-        watchlist = WatchlistItem.find_by(id: session[:user_id])
-        render json: watchlist
-    end
+  def show 
+    watchlist = WatchlistItem.where(user_id: @current_user.id)
+    render json: watchlist
+end
 
 
 
@@ -23,3 +23,8 @@ class WatchlistItemsController < ApplicationController
         params.permit(:symbol, :date, :high, :low, :close, :user_id)
     end
 end
+
+# def show 
+#     watchlist = WatchlistItem.where(user_id: @current_user.id)
+#     render json: watchlist
+# end

@@ -19,7 +19,7 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
 
   function handleAdd() {
     setBttnClick((bttnClick) => !bttnClick)
-    fetch('/watchlists', {
+    fetch('/watchlist_items', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
