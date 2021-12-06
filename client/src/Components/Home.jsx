@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import DataContainer from "./DataContainer";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Box from '@mui/material/Box';
 
 const stockOptions = [
   { ticker: "IBM", company: "IBM" },
@@ -26,47 +31,66 @@ const Home = ({currentUser}) => {
   const [time, setTime] = useState("DAILY")
 
   return (
+  //   <FormControl sx={{ width: 500 }}>
+  //   <InputLabel id="demo-simple-select-label">
+  //     Filter By Party
+  //   </InputLabel>
+  //   <Select
+  //     labelId="demo-simple-select-label"
+  //     id="demo-simple-select"
+  //     label="Filter By Party"
+  //     onChange={(e) => setParty(e.target.value)}
+  //   >
+  //     <MenuItem value="R">Republican</MenuItem>
+  //     <MenuItem value="D">Democrat</MenuItem>
+  //     <MenuItem value="independent">Independent</MenuItem>
+  //   </Select>
+  // </FormControl>
     <div>
-      <form onChange={(e) => setTick(e.target.value)}>
-        <select>
-          <option value="" disabled selected hidden>
-            Select Stock
-          </option>
+     
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 140  }}>
+        <InputLabel>
+        Select Stock
+        </InputLabel>
+        <Select 
+        label="Select Stock"
+        onChange={(e) => setTick(e.target.value)}>
           {stockOptions.map(({ ticker, company }) => (
-            <option value={ticker}>{company}</option>
+            <MenuItem value={ticker}>{company}</MenuItem>
           ))}
-        </select>
-      </form>
-      <form onChange={(e) => setEtf(e.target.value)}>
-        <select>
-          <option value="" disabled selected hidden>
-            Select Comparison Index
-          </option>
+        </Select>
+      </FormControl>
+  
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 230  }}>
+        <InputLabel>
+        Select Comparison Index
+        </InputLabel>
+        <Select onChange={(e) => setEtf(e.target.value)}>
           {etfOptions.map(({ symbol, name }) => (
-            <option value={symbol}>{name}</option>
+            <MenuItem value={symbol}>{name}</MenuItem>
           ))}
-        </select>
-      </form>
-      <form onChange={(e) => setMrkt(e.target.value)}>
-        <select>
-          <option value="" disabled selected hidden>
-            Compare to Market
-          </option>
+        </Select>
+      </FormControl>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 185 }}>
+        <InputLabel>
+        Compare to Market
+        </InputLabel>
+        <Select onChange={(e) => setMrkt(e.target.value)}>
           {mrktOptions.map(({ symbol, name }) => (
-            <option value={symbol}>{name}</option>
+            <MenuItem value={symbol}>{name}</MenuItem>
           ))}
-        </select>
-      </form>
-      <form onChange={(e) => setTime(e.target.value)}>
-        <select>
-          <option value="" disabled selected hidden>
-            Time Interval
-          </option>
-          <option value="DAILY">Daily</option>
-          <option value="WEEKLY">Weekly</option>
-          <option value="MONTHLY">Monthly</option>
-        </select>
-      </form>
+        </Select>
+      </FormControl>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 140 }}>
+      <InputLabel>
+        Time Interval
+        </InputLabel>
+        <Select onChange={(e) => setTime(e.target.value)}>
+          <MenuItem value="DAILY">Daily</MenuItem>
+          <MenuItem value="WEEKLY">Weekly</MenuItem>
+          <MenuItem value="MONTHLY">Monthly</MenuItem>
+        </Select>
+      </FormControl>
       <DataContainer tick={tick} etf={etf} mrkt={mrkt} time={time} currentUser={currentUser} />
     </div>
   );
