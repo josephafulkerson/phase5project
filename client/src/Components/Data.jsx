@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import IndexComparison from "./IndexComparison";
 import MarketComparison from "./MarketComparison";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 const Data = ({ stonks, index, market, time, tick, currentUser }) => {
   const [bttnClick, setBttnClick] = useState(false);
@@ -37,25 +37,36 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
   }
 
   return (
-    <>
+    <div className="chartContainer">
       <h3>{stonks["Meta Data"]["2. Symbol"]} Close</h3>
-      {timeCap === "(Daily)" ? (
-        <div>
-          {dates.map((d, s) => (
-            <div>
-              {d} - {stonks[`Time Series ${timeCap}`][dates[s]]["4. close"]}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div>
-          {dates.map((d, s) => (
-            <div>
-              {d} - {stonks[`${timeCap} Time Series`][dates[s]]["4. close"]}
-            </div>
-          ))}
-        </div>
-      )}
+    
+      <Line
+        data={{
+          datasets: [
+            {
+              label: `${tick} ${timeCap} Closing Price`,
+              data: dates
+                .reverse()
+                .map((d) => ({
+                  x: d,
+                  y: stonks[
+                    timeCap === "(Daily)"
+                      ? `Time Series ${timeCap}`
+                      : `${timeCap} Time Series`
+                  ][d]["4. close"],
+                })),
+                backgroundColor: [
+                  'rgba(255, 159, 64, 0.7)',
+                ]
+            },
+          ],
+        }}
+        height={50}
+        width={50}
+        options={{
+          maintainAspectRatio: false,
+        }}
+      />
 
       {timeCap === "(Daily)" ? (
         <button onClick={handleAdd}>
@@ -64,25 +75,8 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
       ) : null}
       <IndexComparison index={index} time={time} />
       <MarketComparison market={market} time={time} />
-    </>
+    </div>
   );
 };
 
 export default Data;
-
-{
-  /* <Bar
-          data={{
-            labels: ["Bink", "Gimme"],
-            datasets: [{
-              label: "closing Price",
-              data: 
-            }]
-          }}
-          height={50}
-          width={50}
-          options={{
-            maintainAspectRatio: false
-          }}
-        /> */
-}

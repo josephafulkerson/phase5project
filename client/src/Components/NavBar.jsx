@@ -1,14 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
+import { FcMoneyTransfer } from "react-icons/fc";
 
 import {
   Nav,
   NavLink,
-  Bars,
   NavMenu,
   NavBtn,
-  NavBtnLink,
 } from "./NavBarElements";
 
 const NavBar = ({ setCurrentUser }) => {
@@ -25,6 +24,7 @@ const NavBar = ({ setCurrentUser }) => {
   return (
     <div>
       <Nav>
+      <NavLink to="/" className="nav"><FcMoneyTransfer size={30}/></NavLink>
         <NavMenu>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>

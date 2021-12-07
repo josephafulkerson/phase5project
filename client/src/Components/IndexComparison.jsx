@@ -1,4 +1,5 @@
 import React from "react";
+import { Line } from "react-chartjs-2";
 
 const IndexComparison = ({ index, time }) => {
   if (!index) return <div>Select a Comparison Index</div>;
@@ -13,26 +14,37 @@ const IndexComparison = ({ index, time }) => {
     : Object.keys(index[`${timeCap} Time Series`]).slice(0, 12);
   console.log(etfDates, "In index")
   return (
-    <>
+    <div className="chartContainer">
     <h3>{index["Meta Data"]["2. Symbol"]} Close</h3>
-    {timeCap === "(Daily)" ? (
-      <div>
-        {etfDates.map((d, s) => (
-          <div>
-            {d} - {index[`Time Series ${timeCap}`][etfDates[s]]["4. close"]}
-          </div>
-        ))}
-      </div>
-    ) : (
-      <div>
-        {etfDates.map((d, s) => (
-          <div>
-            {d} - {index[`${timeCap} Time Series`][etfDates[s]]["4. close"]}
-          </div>
-        ))}
-      </div>
-    )}
-  </>
+       <Line
+        data={{
+          datasets: [
+            {
+              label: `${index["Meta Data"]["2. Symbol"]} ${timeCap} Closing Price`,
+              data: etfDates
+                .reverse()
+                .map((d) => ({
+                  x: d,
+                  y: index[
+                    timeCap === "(Daily)"
+                      ? `Time Series ${timeCap}`
+                      : `${timeCap} Time Series`
+                  ][d]["4. close"],
+                })),
+                backgroundColor: [
+                'rgba(54, 162, 235, 0.7)',
+                
+                ]
+            },
+          ],
+        }}
+        height={50}
+        width={50}
+        options={{
+          maintainAspectRatio: false,
+        }}
+      />
+  </div>
 );
 };
 

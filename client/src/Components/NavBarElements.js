@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
   /* Third Nav */
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
 `;
 
 export const NavLink = styled(Link)`

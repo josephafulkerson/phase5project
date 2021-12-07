@@ -6,3 +6,32 @@
   margin: 0;
   padding: 0px;
 }
+
+.chartContainer {
+  height: 350px;
+  width: 500px;
+  padding: 12px
+}
+
+.nav {
+  margin-left:-150px;
+}
+
+.about {
+  margin: 10px;
+  text-align: center;
+}
+
+.profile {
+  margin: 10px;
+}
+
+.login {
+  padding: 20px;
+  text-align: center;
+}
+
+.signup {
+  margin: 20px;
+  text-align: center;
+}

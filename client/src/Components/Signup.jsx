@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import {  Redirect, useHistory, Link } from 'react-router-dom'
+import Box from "@mui/material/Box";
 
 const Signup = ({setCurrentUser}) => {
   const [username, setUsername] = useState("")
@@ -38,30 +39,35 @@ function handleSubmit(e) {
   }
 
   return (
-    <div>
+    <div className="signup">
       <form onSubmit={handleSubmit}>
         <h2>Create an Account</h2>
-        <TextField
+        <Box pt={2}>
+        <TextField sx={{m: 1, width: '25ch'}}
           label="Username"
           type="text"
           name="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         ></TextField>
-        <TextField
+        <br/>
+        <TextField sx={{m: 1, width: '25ch'}}
           label="Password"
           type="password"
           name=""
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></TextField>
-        <TextField
+        <br/>
+        <TextField sx={{m: 1, width: '25ch'}}
           label=" Confirm Password"
           type="password"
           name="password_confirmation"
           value={passwordConfirm}
           onChange={(e) => setPasswordConfirm(e.target.value)}
         ></TextField>
+        </Box>
+        <br />
         <Button size="small" variant="contained" type="submit">
           Submit
         </Button>

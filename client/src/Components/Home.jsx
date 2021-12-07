@@ -32,7 +32,7 @@ const Home = ({currentUser}) => {
 
   return (
     <div>
-     <Box pt={3}>
+     <Box pt={2}>
       <FormControl variant="standard" sx={{ m: 2, minWidth: 140  }}>
         <InputLabel>
         Select Stock
