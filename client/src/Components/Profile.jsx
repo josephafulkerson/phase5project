@@ -14,6 +14,7 @@ const Profile = ({ currentUser }) => {
 
   return (
     <>
+     <br />
       <h3>Hello {currentUser.username}</h3>
       <h4>You have your eye on {userData.length} stocks</h4>
       {userData.map(d => <p>{d.symbol} <strong>Date:</strong> {d.date} <strong>High:</strong> {d.high} <strong>Low:</strong> {d.low} <strong>Close: {d.close}</strong></p>)}

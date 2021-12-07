@@ -31,24 +31,9 @@ const Home = ({currentUser}) => {
   const [time, setTime] = useState("DAILY")
 
   return (
-  //   <FormControl sx={{ width: 500 }}>
-  //   <InputLabel id="demo-simple-select-label">
-  //     Filter By Party
-  //   </InputLabel>
-  //   <Select
-  //     labelId="demo-simple-select-label"
-  //     id="demo-simple-select"
-  //     label="Filter By Party"
-  //     onChange={(e) => setParty(e.target.value)}
-  //   >
-  //     <MenuItem value="R">Republican</MenuItem>
-  //     <MenuItem value="D">Democrat</MenuItem>
-  //     <MenuItem value="independent">Independent</MenuItem>
-  //   </Select>
-  // </FormControl>
     <div>
-     
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 140  }}>
+     <Box pt={3}>
+      <FormControl variant="standard" sx={{ m: 2, minWidth: 140  }}>
         <InputLabel>
         Select Stock
         </InputLabel>
@@ -61,7 +46,7 @@ const Home = ({currentUser}) => {
         </Select>
       </FormControl>
   
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 230  }}>
+      <FormControl variant="standard" sx={{ m: 2, minWidth: 230  }}>
         <InputLabel>
         Select Comparison Index
         </InputLabel>
@@ -71,7 +56,7 @@ const Home = ({currentUser}) => {
           ))}
         </Select>
       </FormControl>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 185 }}>
+      <FormControl variant="standard" sx={{ m: 2, minWidth: 185 }}>
         <InputLabel>
         Compare to Market
         </InputLabel>
@@ -81,7 +66,7 @@ const Home = ({currentUser}) => {
           ))}
         </Select>
       </FormControl>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 140 }}>
+      <FormControl variant="standard" sx={{ m: 2, minWidth: 140 }}>
       <InputLabel>
         Time Interval
         </InputLabel>
@@ -92,6 +77,7 @@ const Home = ({currentUser}) => {
         </Select>
       </FormControl>
       <DataContainer tick={tick} etf={etf} mrkt={mrkt} time={time} currentUser={currentUser} />
+      </Box>
     </div>
   );
 };
