@@ -11,11 +11,45 @@ const stockOptions = [
   { ticker: "F", company: "Ford" },
   { ticker: "GM", company: "General Motors" },
   { ticker: "TSLA", company: "Tesla" },
+  { ticker: "AAPL", company: "Apple" },
+  { ticker: "MSFT", company: "Microsoft" },
+  { ticker: "GOOG", company: "Google" },
+  { ticker: "AMZN", company: "Amazon" },
+  { ticker: "FB", company: "Meta" },
+  { ticker: "JPM", company: "JP Morgan" },
+  { ticker: "WMT", company: "Wal-Mart" },
+  { ticker: "HD", company: "Home Depot" },
+  { ticker: "JNJ", company: "Johnson & Johnson" },
+  { ticker: "NFLX", company: "Netflix" },
+  { ticker: "NKE", company: "Nike" },
+  { ticker: "XOM", company: "Exxon Mobile" },
+  { ticker: "PLTR", company: "Palantir" },
+  { ticker: "BRK-A", company: "Berkshire-Hathaway" },
+  { ticker: "PG", company: "Proctor & Gamble" },
+  { ticker: "CSCO", company: "Cisco" },
+  { ticker: "ORCL", company: "Oracle" },
+  { ticker: "CVX", company: "Chevron" },
+  { ticker: "KO", company: "Coca-Cola" },
+  { ticker: "ABT", company: "Abbot Laboratories" },
+  { ticker: "TMO", company: "Thermo Fisher Scientific" },
+  { ticker: "CRM", company: "Salesforce" },
+  { ticker: "ADBE", company: "Adobe" },
+  { ticker: "MA", company: "Mastercard" },
+  { ticker: "DIS", company: "Walt Disney" },
+  { ticker: "AMD", company: "AMD" },
+
+
 ];
 
 const etfOptions = [
     { symbol: "VDE", name: "Vanguard Energy Index Fund ETF" },
-    { symbol: "CARZ", name: "First Trust NASDAQ Global Auto Index ETF" }
+    { symbol: "CARZ", name: "First Trust NASDAQ Global Auto Index ETF" },
+    { symbol: "XLK", name: "Technology Select Sector SPDR Fund" },
+    { symbol: "FNCL", name: "Fidelity MSCI Financials Index ETF" },
+    { symbol: "PSI", name: "Invesco Dynamic Semiconductors ETF" },
+    { symbol: "XLK", name: "Technology Select Sector SPDR Fund" },
+    { symbol: "IEO", name: "iShares U.S. Oil & Gas Exploration & Production ETF" }
+
 ];
 
 const mrktOptions = [
@@ -29,6 +63,8 @@ const Home = ({currentUser}) => {
   const [etf, setEtf] = useState("");
   const [mrkt, setMrkt] = useState("");
   const [time, setTime] = useState("DAILY")
+
+  
 
   return (
     <div>

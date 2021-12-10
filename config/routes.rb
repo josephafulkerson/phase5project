@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :watchlist_items, only: [:create, :index]
+  resources :watchlist_items, only: [:create, :index, :destroy]
   resources :users
 
   get '/me', to: 'users#show'

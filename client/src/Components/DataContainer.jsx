@@ -44,7 +44,7 @@ const DataContainer = ({ tick, etf, mrkt, time, currentUser }) => {
 
 
   return (
-    <div>
+    <div >
       <Data stonks={stonk} index={index} market={market} time={time} tick={tick} currentUser={currentUser}/>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 const IndexComparison = ({ index, time }) => {
-  if (!index) return <div>Select a Comparison Index</div>;
+  if (!index) return <div className="index">Select a Comparison Index</div>;
   let timeCap =
     time === "DAILY" ? "(Daily)" : time.charAt(0) + time.slice(1).toLowerCase();
   console.log(timeCap, "In index")
@@ -14,8 +14,7 @@ const IndexComparison = ({ index, time }) => {
     : Object.keys(index[`${timeCap} Time Series`]).slice(0, 12);
   console.log(etfDates, "In index")
   return (
-    <div className="chartContainer">
-    <h3>{index["Meta Data"]["2. Symbol"]} Close</h3>
+    <div className="index">
        <Line
         data={{
           datasets: [
@@ -32,7 +31,7 @@ const IndexComparison = ({ index, time }) => {
                   ][d]["4. close"],
                 })),
                 backgroundColor: [
-                'rgba(54, 162, 235, 0.7)',
+                'rgba(54, 162, 235, 0.9)',
                 
                 ]
             },

@@ -10,10 +10,18 @@ class WatchlistItemsController < ApplicationController
         render json: watchlist
     end
 
-  def show 
-    watchlist = WatchlistItem.where(user_id: @current_user.id)
-    render json: watchlist
-end
+    def show 
+        watchlist = WatchlistItem.where(user_id: @current_user.id)
+        render json: watchlist
+
+    end
+
+    def destroy
+        watchlist = WatchlistItem.find_by(id: params[:id])
+        watchlist.destroy
+        head :no_content
+    end
+
 
 
 

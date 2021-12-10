@@ -7,11 +7,37 @@
   padding: 0px;
 }
 
-.chartContainer {
+.stock {
   height: 350px;
   width: 500px;
-  padding: 12px
+  padding: 12px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  margin-left: 40px;
+  margin-right: auto;
+  /* flex-grow: 100;
+  flex-shrink: 50; */
 }
+
+.index {
+  height: 350px;
+  width: 500px;
+  padding: 12px;
+  text-align: center;
+  margin-left: 650px;
+  margin-top: -348px;
+}
+
+.market {
+  height: 360px;
+  width: 510px;
+  padding: 12px;
+  text-align: center;
+  margin-left: 315px;
+  margin-top: -30px;
+} 
 
 .nav {
   margin-left:-150px;
@@ -24,6 +50,7 @@
 
 .profile {
   margin: 10px;
+  padding: 10px;
 }
 
 .login {
@@ -35,3 +62,18 @@
   margin: 20px;
   text-align: center;
 }
+
+.stonks {
+  text-align: left;
+  padding: 10px;
+}
+
+#newsinfo {
+  text-align: center;
+}
+
+#img {
+  border-radius: 10%;
+}
+
+

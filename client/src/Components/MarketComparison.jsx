@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 const MarketComparison = ({ market, time }) => {
-  if (!market) return <div>Select an ETF above to see market comparison</div>;
+  if (!market) return <><br /><div className="market">Select an ETF above to see market comparison</div></>;
   let timeCap =
     time === "DAILY" ? "(Daily)" : time.charAt(0) + time.slice(1).toLowerCase();
   if (!market[`${timeCap} Time Series`] && !market[`Time Series ${timeCap}`]) return <div>Loading.....</div>;
@@ -13,10 +13,9 @@ const MarketComparison = ({ market, time }) => {
       : Object.keys(market[`${timeCap} Time Series`]).slice(0, 12);
   console.log(mrktDates, "second")
   return (
-    <div className="chartContainer">
+    <div className="market">
       <br/>
       <br/>
-    <h3>{market["Meta Data"]["2. Symbol"]} Close</h3>
     <Line
         data={{
           datasets: [
@@ -33,7 +32,7 @@ const MarketComparison = ({ market, time }) => {
                   ][d]["4. close"],
                 })),
                 backgroundColor: [
-                  'rgba(255, 99, 132, 0.7)'
+                  'rgba(255, 99, 132, 0.9)'
                 ]
             },
           ],
@@ -44,6 +43,8 @@ const MarketComparison = ({ market, time }) => {
           maintainAspectRatio: false,
         }}
       />
+      <br />
+      <br />
   </div>
 );
 };
