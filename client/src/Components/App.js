@@ -9,7 +9,7 @@ function App() {
   const [auth, setAuth] = useState(false)
 
   useEffect(() => {
-    fetch("/me")
+    fetch("/api/me")
     .then(res => {
       if (res.ok) {
         res.json().then((user) => {
@@ -24,7 +24,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    fetch("/profile")
+    fetch("/api/profile")
     .then(res => res.json())
     .then(data => console.log(data))
   }, [])

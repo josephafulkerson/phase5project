@@ -24,7 +24,7 @@ const Profile = ({ currentUser }) => {
 
   function handleDelete(id) {
     window.location.reload()
-    fetch(`/watchlist_items/${id}`, {
+    fetch(`/api/watchlist_items/${id}`, {
       method: 'DELETE'
     })
     .then(r => r.json())
