@@ -63,6 +63,7 @@ const Home = ({currentUser}) => {
   const [etf, setEtf] = useState("");
   const [mrkt, setMrkt] = useState("");
   const [time, setTime] = useState("DAILY")
+  
 
   
 
@@ -112,7 +113,7 @@ const Home = ({currentUser}) => {
           <MenuItem value="MONTHLY">Monthly</MenuItem>
         </Select>
       </FormControl>
-      <DataContainer tick={tick} etf={etf} mrkt={mrkt} time={time} currentUser={currentUser} />
+      <DataContainer tick={tick} etf={etf} mrkt={mrkt} time={time} currentUser={currentUser}/>
       </Box>
     </div>
   );

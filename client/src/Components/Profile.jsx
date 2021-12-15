@@ -14,7 +14,7 @@ import { GiTrashCan } from "react-icons/gi";
 const Profile = ({ currentUser }) => {
   const [userData, setUserData] = useState([])
   useEffect(() =>{
-    fetch('/profile')
+    fetch('/api/profile')
     .then(r => r.json())
     .then(data => setUserData(data))
   }, [])
@@ -31,7 +31,6 @@ const Profile = ({ currentUser }) => {
     .then(data => console.log(data))
   }
 
-  console.log(userData)
 
   return (
     <div className="profile">

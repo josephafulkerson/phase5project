@@ -7,16 +7,15 @@ const ProfileData = ({ tickers }) => {
     fetch(
       `https://newsapi.org/v2/everything?sources=Bloomberg, Reuters&q=${tickers.join(
         " Stock AND "
-      )} Stock &from=2021-11-11&to=2021-12-06&sortBy=popularity&apiKey=b58620b0fadd46c3a1249c063789a726`
+      )} Stock &sortBy=popularity&apiKey=b58620b0fadd46c3a1249c063789a726`
     )
       .then((r) => r.json())
       .then((data) => setNews(data));
   }, []);
   
-  // console.log(userData)
-  // const newsArt = Object.keys(news.articles).slice(0, 10)
+  
   console.log(news);
-  // debugger
+  
 
   return (
     <>

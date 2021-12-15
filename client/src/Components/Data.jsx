@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import IndexComparison from "./IndexComparison";
 import MarketComparison from "./MarketComparison";
 import { Line } from "react-chartjs-2";
+import Button from "@mui/material/Button";
 
 const Data = ({ stonks, index, market, time, tick, currentUser }) => {
-  const [bttnClick, setBttnClick] = useState(false);
+  // const [bttnClick, setBttnClick] = useState(false);
   if (!stonks) return <div className="stonks">Select a Stock to View</div>;
   let timeCap =
     time === "DAILY" ? "(Daily)" : time.charAt(0) + time.slice(1).toLowerCase();
   console.log(timeCap, "first");
   console.log("stonky", stonks);
   if (!stonks[`${timeCap} Time Series`] && !stonks[`Time Series ${timeCap}`])
-    return <div>Loading.....</div>;
+    return <div>Fetch limit exceeded, please refresh and try again in 30 seconds...</div>;
 
   const dates =
     timeCap === "(Daily)"
@@ -19,8 +20,7 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
       : Object.keys(stonks[`${timeCap} Time Series`]).slice(0, 12);
 
   function handleAdd() {
-    setBttnClick(true);
-    fetch("/watchlist_items", {
+    fetch("/api/watchlist_items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,13 +34,16 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
         user_id: currentUser.id,
       }),
     });
+    alert("Added to profile")
   }
 
   return (
     <>
     <div className="stock">
       {timeCap === "(Daily)" ? (
-        <p onClick={handleAdd}>{bttnClick ? "✅" : `👀`} </p>
+        <Button size="small" variant="contained" type="submit" onClick={handleAdd} style={{maxWidth: '5px', maxHeight: '15px'}}>
+        +
+      </Button>
       ) : null}
 
       <Line
