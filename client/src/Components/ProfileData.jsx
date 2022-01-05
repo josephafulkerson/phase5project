@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 const ProfileData = () => {
   const [news, setNews] = useState(null);
-  const url = `https://newsapi.org/v2/everything?sources=Bloomberg, Reuters&q=stocks&sortBy=popularity&apiKey=b58620b0fadd46c3a1249c063789a726`
+  
  
   useEffect(() => {
-    fetch(url)
+    fetch('/api/news')
       .then((r) => r.json())
       .then((data) => setNews(data));
   }, []);
