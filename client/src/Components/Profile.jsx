@@ -70,9 +70,9 @@ const Profile = ({ currentUser }) => {
     </TableContainer>
     <br />
       <br />
-      <h2 id="newsinfo">Here is what the news is saying about your stocks&nbsp;<ImPointDown /></h2>
+      <h2 id="newsinfo">Current financial news&nbsp;<ImPointDown /></h2>
       <br />
-      <ProfileData tickers={userData.map(data => data.symbol)} /> 
+      <ProfileData /> 
       {/* {userData.map(d => <ProfileData ticker={d.symbol} />)} */}
     </div>
   );

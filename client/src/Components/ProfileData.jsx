@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const ProfileData = ({ tickers }) => {
+const ProfileData = () => {
   const [news, setNews] = useState(null);
-  console.log(tickers);
+ 
   useEffect(() => {
     fetch(
-      `https://newsapi.org/v2/everything?sources=Bloomberg, Reuters&q=${tickers.join(
-        " Stock AND "
-      )} Stock &sortBy=popularity&apiKey=b58620b0fadd46c3a1249c063789a726`
+      `https://newsapi.org/v2/everything?sources=Bloomberg, Reuters&q=stocks&sortBy=popularity&apiKey=b58620b0fadd46c3a1249c063789a726`
     )
       .then((r) => r.json())
       .then((data) => setNews(data));
