@@ -11,7 +11,7 @@ const ProfileData = () => {
   }, []);
   
   
-  console.log(news);
+  
   
 if (news.status == 'error') return <div>Current financial news not supported by this browser</div>
   return (
