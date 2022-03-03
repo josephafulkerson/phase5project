@@ -13,7 +13,7 @@ const ProfileData = () => {
   
   
   
-if (news.status == 'error') return <div>Sorry, current financial news not supported by this browser</div>
+if (!news) return <div>Sorry, current financial news not at this time</div>
   return (
     <>
     <br />

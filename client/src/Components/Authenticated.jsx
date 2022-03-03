@@ -5,7 +5,7 @@ import Profile from "./Profile";
 import { Switch, Route } from "react-router-dom";
 
 const Authenticated = ({ currentUser }) => {
-  console.log(currentUser);
+ 
   return (
     <>
       <Switch>

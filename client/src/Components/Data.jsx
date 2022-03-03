@@ -9,8 +9,7 @@ const Data = ({ stonks, index, market, time, tick, currentUser }) => {
   if (!stonks) return <div className="stonks">Select a Stock to View</div>;
   let timeCap =
     time === "DAILY" ? "(Daily)" : time.charAt(0) + time.slice(1).toLowerCase();
-  console.log(timeCap, "first");
-  console.log("stonky", stonks);
+
   if (!stonks[`${timeCap} Time Series`] && !stonks[`Time Series ${timeCap}`])
     return <div>Fetch limit exceeded, please refresh and try again in 30 seconds...</div>;
 
